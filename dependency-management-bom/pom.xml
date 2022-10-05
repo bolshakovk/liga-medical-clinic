@@ -52,22 +52,22 @@
             </dependency>
             <dependency>
                 <groupId>liga.medical</groupId>
-                <artifactId>monitoring-core-api</artifactId>
+                <artifactId>message-analyzer-core-api</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>liga.medical</groupId>
-                <artifactId>monitoring-dto</artifactId>
+                <artifactId>message-analyzer-dto</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>liga.medical</groupId>
-                <artifactId>monitoring-utils</artifactId>
+                <artifactId>message-analyzer-utils</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>liga.medical</groupId>
-                <artifactId>monitoring-core</artifactId>
+                <artifactId>message-analyzer-core</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
