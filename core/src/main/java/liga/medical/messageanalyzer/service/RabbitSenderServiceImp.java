@@ -20,6 +20,6 @@ public class RabbitSenderServiceImp implements RabbitSenderService {
     public void sendMessage(RabbitMessageDTO messageDTO, String str) throws JsonProcessingException {
         String messageStr = o.writeValueAsString(messageDTO);
         amqpTemplate.convertAndSend(str, messageStr);
-        System.out.println(String.format("Сообщение [%s] в очередь [%s] отправлено", messageStr, str));
+        System.out.println(String.format("Сообщение [%s] в очередь [%s] отправлено c типом [%s]", messageStr, str, messageDTO.getType()));
     }
 }
