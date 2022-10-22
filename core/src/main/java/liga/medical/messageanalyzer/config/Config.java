@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class Config {
     private static final String HOST = "localhost";
-    public static String ROUTER_QUEUE_NAME = "common_monitoring";
+    public static String ROUTER_QUEUE_NAME = "common-monitoring";
 
     @Bean
     public ConnectionFactory connectionFactory(){
