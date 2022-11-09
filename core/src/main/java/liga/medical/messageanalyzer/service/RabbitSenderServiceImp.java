@@ -1,9 +1,9 @@
 package liga.medical.messageanalyzer.service;
 
+import api.RabbitSenderService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import liga.medical.messageanalyzer.api.RabbitSenderService;
-import liga.medical.messageanalyzer.model.RabbitMessageDTO;
+import model.RabbitMessageDto;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.stereotype.Service;
 
@@ -17,9 +17,14 @@ public class RabbitSenderServiceImp implements RabbitSenderService {
     }
 
     @Override
-    public void sendMessage(RabbitMessageDTO messageDTO, String str) throws JsonProcessingException {
+    public void sendMessage(RabbitMessageDto messageDTO, String str) throws JsonProcessingException {
         String messageStr = o.writeValueAsString(messageDTO);
         amqpTemplate.convertAndSend(str, messageStr);
         System.out.println(String.format("Сообщение [%s] в очередь [%s] отправлено c типом [%s]", messageStr, str, messageDTO.getType()));
+    }
+
+    @Override
+    public void sendError(String s) {
+
     }
 }

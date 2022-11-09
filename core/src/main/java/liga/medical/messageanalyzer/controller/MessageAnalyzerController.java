@@ -1,13 +1,14 @@
 package liga.medical.messageanalyzer.controller;
 
+import api.RabbitSenderService;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import liga.medical.messageanalyzer.api.RabbitSenderService;
-import liga.medical.messageanalyzer.config.Config;
-import liga.medical.messageanalyzer.model.RabbitMessageDTO;
+import model.RabbitMessageDto;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import static config.RabbitConfig.ROUTER_QUEUE_NAME;
 
 @RestController
 @RequestMapping("/rabbit")
@@ -21,7 +22,7 @@ public class MessageAnalyzerController {
     }
 
     @PostMapping("/send")
-    public void sendMessage(@RequestBody RabbitMessageDTO messageDTO) throws JsonProcessingException{
-        rabbitSenderService.sendMessage(messageDTO, Config.ROUTER_QUEUE_NAME);
+    public void sendMessage(@RequestBody RabbitMessageDto messageDTO) throws JsonProcessingException{
+        rabbitSenderService.sendMessage(messageDTO, ROUTER_QUEUE_NAME);
     }
 }
